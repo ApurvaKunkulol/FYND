@@ -1,0 +1,27 @@
+DROP TABLE IF EXISTS  imdb_user;
+DROP TABLE IF EXISTS  Movie;
+DROP TABLE IF EXISTS  Role;
+
+CREATE TABLE imdb_user (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_name TEXT,
+  password TEXT NOT NULL,
+  role_id INTEGER NOT NULL,
+  FOREIGN KEY (role_id) REFERENCES Role (id)
+);
+
+CREATE TABLE Role(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  role_name TEXT NOT NULL
+);
+
+
+CREATE TABLE Movie(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  title TEXT NOT NULL,
+  popularity REAL NOT NULL,
+  director TEXT,
+  genre TEXT,
+  imdb_score REAL
+);
+

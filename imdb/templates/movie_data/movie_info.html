@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Movie Information{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="title">Title</label>
+    <input name="title" id="title" required>
+    <label for="popularity">Popularity</label>
+    <input type="popularity" name="popularity" id="popularity" required>
+    <label for="director">Director</label>
+    <input type="director" name="director" id="director" required>
+    <label for="genre">Genre</label>
+    <input type="genre" name="genre" id="genre" required>
+    <label for="imdb_score">IMDB Score</label>
+    <input type="imdb_score" name="imdb_score" id="imdb_score" required>
+    <input type="submit" value="Save">
+  </form>
+  <div>
+      <ul>
+          {% for itm in movie_list %}
+            <li>{{ itm }}</li>
+          {% endfor %}
+      </ul>
+  </div>
+{% endblock %}
